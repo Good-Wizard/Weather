@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Status 🌦️</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <form id="weather-form" class="form" method="post" action="/weather">
+            <h1>Weather Status</h1>
+            <br>
+            <div class="input-container">
+                <input type="text" id="city" name="city" required autocomplete="off">
+                <label for="city" class="label">Enter City Name</label>
+                <div class="underline"></div>
+            </div>
+            <br>
+            <label>Temperature Unit 🌡️</label>
+            <br>
+            <div class="radio-inputs">
+                <label class="radio">
+                    <input type="radio" name="units" value="metric" checked>
+                    <span class="name">Celsius</span>
+                </label>
+                <label class="radio">
+                    <input type="radio" name="units" value="imperial">
+                    <span class="name">Fahrenheit</span>
+                </label>
+            </div>
+            <br>
+            <button type="submit" class="box">
+                Go ahead!
+            </button>
+        </form>
+
+        {% if error %}
+        <div class="error-message">
+            <p style="color: red;">{{ error }}</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Status for {{ weather.city }} 🌦️</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Weather Status for {{ weather.city }}</h1>
+        <div id="weather-icon" class="weather-icon">
+            <!-- <img id="weather-icon-img" src="{{ url_for('static', filename='icons/' + weather.weather_icon + '.png') }}" alt="Weather Icon" style="size-adjust: 1%;"> -->
+        </div>
+        <div class="weather-detail">
+            <p><strong>Description:</strong> <span>{{ weather.weather_description }}</span></p>
+            <p><strong>Temperature:</strong> <span>{{ weather.temperature }}</span>°</p>
+            <p><strong>Humidity:</strong> <span>{{ weather.humidity }}</span>%</p>
+            <p><strong>Wind Speed:</strong> <span>{{ weather.wind_speed }}</span> m/s</p>
+            <p><strong>Air Pressure:</strong> <span>{{ weather.pressure }}</span> hPa</p>
+        </div>
+        <br>
+        <form action="/" method="get">
+            <button type="submit" class="box">← Back</button>
+        </form>
+    </div>
+</body>
+</html>
